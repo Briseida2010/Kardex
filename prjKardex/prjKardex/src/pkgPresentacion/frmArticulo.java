@@ -6,6 +6,11 @@
 
 package pkgPresentacion;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import pkgEntidad.clsEnArticulo;
+import pkgNegocios.clsArticulo;
+
 /**
  *
  * @author azteca
@@ -15,10 +20,17 @@ public class frmArticulo extends javax.swing.JFrame {
     /**
      * Creates new form frmArticulo
      */
+    clsArticulo objArticulo = new clsArticulo();
+    
     public frmArticulo() {
         initComponents();
     }
-
+    
+    public void cargarGrid(){
+        clsEnArticulo[] articulos = objArticulo.listarArticulo();
+        DefaultTableModel dtm = new DefaultTableModel();
+       
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,13 +53,18 @@ public class frmArticulo extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        txtStock = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
-        cmbStock = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 160, 50));
 
         btnListar.setText("Listar");
@@ -87,16 +104,25 @@ public class frmArticulo extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel3.setText("Stock");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
         getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 150, -1));
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 150, -1));
-        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 100, -1));
-
-        cmbStock.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cmbStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 130, -1));
+        getContentPane().add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 100, -1));
+        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 152, 100, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        clsEnArticulo objEnArticulo = new clsEnArticulo();
+        objEnArticulo.setIdprod(Integer.parseInt(txtCodigo.getText()));
+        objEnArticulo.setNomprod(txtNombre.getText());
+        objEnArticulo.setPrecio(Float.parseFloat(txtStock.getText()));
+        objEnArticulo.setStock(Integer.parseInt(txtStock.getText()));
+        objArticulo.agregarArticulo(objEnArticulo);
+        JOptionPane.showMessageDialog(null,"Se ha agregado correctamente");
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +165,6 @@ public class frmArticulo extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JComboBox cmbStock;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -149,5 +174,6 @@ public class frmArticulo extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables
 }
