@@ -6,7 +6,7 @@ import java.io.*;
  */
 public class clsArticulo 
 {
-    String holaBriseida="Hola Briseida como estas";
+    String holaCharlie="Hola Briseida como estas";
     String dataInput="";
     clsEnArticulo[] arreglo;
     public void leerArchivoOrigen()
