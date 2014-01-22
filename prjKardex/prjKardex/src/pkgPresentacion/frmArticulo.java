@@ -108,7 +108,7 @@ public class frmArticulo extends javax.swing.JFrame {
         getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 150, -1));
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 150, -1));
         getContentPane().add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 100, -1));
-        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 152, 100, 20));
+        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 152, 100, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

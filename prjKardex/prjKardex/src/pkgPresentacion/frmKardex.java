@@ -79,7 +79,7 @@ public class frmKardex extends javax.swing.JFrame {
         jLabel4.setText("Saldo Salida");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
 
-        jLabel5.setText("Producto");
+        jLabel5.setText("Articulo");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         cmbProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
